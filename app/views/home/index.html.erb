@@ -1,0 +1,20 @@
+<section>
+  <div class="my-5">
+    <%= search_form_for @q,  url: root_path do |form| %>
+      <%= form.search_field :first_name_or_last_name_or_profile_title_cont, placeholder: "search the name of your developer" %>
+      <%= form.search_field :country_or_state_or_city_cont,  placeholder:"look for using a city"%>
+      <%= form.submit "search"  %>
+    <% end %>
+  </div>
+
+ <% if @users.any? %>
+  <div class="flex flex-wrap">
+    <%= render partial: "shared/card", collection: @users, as: :user %>
+  </div>
+<% else %>
+  <div class="text-center h-[70vh] mt-[100px] flex justify-center items-center">
+    <p>No users found</p>
+  </div>
+<% end %>
+
+</section>
