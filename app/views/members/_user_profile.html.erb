@@ -1,0 +1,14 @@
+<div id="user_profile" class="w-[60%] p-5 mx-auto flex relative rounded-md border-2 items-center">
+    <div class="w-[150px] flex items-center h-[150px] mr-3 border-2 border-blue-400 rounded-full">
+        <%= image_tag "use.svg",  alt:current_user.name, class: "w-2/3 h-1/2 m-auto" %>
+    </div>
+    <div class="w-50% text-gray-600">
+        <h3 class="text-xl mb-2"><%=current_user.name%></h3>
+        <h5 class="mb-2"><%=current_user.profile_title%></h5>
+        <p class="mb-2"><%=current_user.email%></p>
+        <p class="text-blue-400"><%=current_user.location%></p>
+    </div>
+    <div class="absolute right-[15px] top-[15px] text-blue-400">
+        <%= link_to "edit", edit_user_profile_path, data:{controller:"user-detail"}%>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div id="experience_<%= experience.id %>" class="relative">
+  <p><%= experience.job_title %> at <%= experience.company %> - <%= experience.location %></p>
+  <div class="absolute top-[10px] right-[10px]">
+    <%= link_to "edit", edit_work_experience_path(experience) %>
+    <%= link_to "Delete", work_experience_path(experience), data: {turbo_method: :delete } %>
+  </div>
+</div>

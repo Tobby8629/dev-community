@@ -1,0 +1,16 @@
+<div>
+  <%= render "user_profile" %>
+  <%= render "user_about" %>
+  <div id="experience_list" class="w-[60%] relative py-10 p-8 my-5 mx-auto rounded-md border-2">
+    <%if current_user.work_experiences.empty?%>
+      <p>user has no experience</p>
+      <%else%>
+      <%= render partial: "members/partial/experience", collection: current_user.work_experiences, as: :experience %>
+    <%end%>
+     <div class="absolute right-[15px] top-[15px] text-blue-400">
+      <%= link_to "edit", new_work_experience_path, data: { controller: "user-detail"} %>
+    </div>
+  </div>
+  <%=turbo_frame_tag id="modal" do%>
+  <%end%>
+</div>

@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "modal" do %>
+ <div class="w-full min-h-screen bg-gray-200/70 backdrop-blur-sm flex justify-center items-center absolute top-0 left-0" data-controller="detail-modal" data-detail-modal-target="toogle">
+    <div class="min-h-[500px] p-5 py-10 min-w-[600px] bg-white relative">
+      <button class="absolute right-[10px] text-xl top-[12px] text-red-500"  data-action="click -> detail-modal#closemodal">
+        X
+      </button>
+      <h3 class="text-2xl mb-5">
+        <%= form_title%>
+      </h3>
+      <%= render form %>
+    </div>
+  </div>
+<%end%>  

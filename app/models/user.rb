@@ -14,8 +14,14 @@ class User < ApplicationRecord
     "CTO"
   ].freeze
 
+  has_many :work_experiences
+
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def location
+    "#{street_address}, #{state}, #{country}, #{zipcode} "
   end
 
   def self.ransackable_attributes(auth_object = nil)

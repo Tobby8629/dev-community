@@ -1,0 +1,8 @@
+  <div class="w-[60%] relative py-10 p-8 my-5 mx-auto rounded-md border-2" id="user_about">
+    <p class="text-gray-500 leading-[28px]">
+      <%= current_user.about%>
+    </p>
+    <div class="absolute right-[15px] top-[15px] text-blue-400">
+      <%= link_to "edit", edit_user_about_path, data:{controller:"user-detail"}%>
+    </div>
+   </div>

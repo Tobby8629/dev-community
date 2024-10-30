@@ -1,13 +1,22 @@
-<nav class=" w-full bg-blue-600 h-24 flex justify-between p-5 lg:px-10 item-center leading-[55px]">
+<nav class=" w-full bg-blue-600 h-24 text-gray-200 flex justify-between p-5 lg:px-10 item-center leading-[55px]">
   <div>
-    <%= link_to "NAV", root_path %>
+    <%= link_to "Dev Community", root_path %>
   </div>
-  <div>
-    <div>
+  <div class="flex justiify-between items-center">
+    <div class="mr-10">
       <%= link_to "Home", root_path %>
       <%= link_to "Contact", root_path %>
       <%= link_to "About", root_path %>
       <%= link_to "fAQ", root_path %>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to current_user.name, profile_path %>
+      
+      <%else%>
+        <%= link_to "signup", new_user_registration_path %>
+        <%= link_to "signin", new_user_session_path%>
+      <%end%>
     </div>
   </div>
 </nav>

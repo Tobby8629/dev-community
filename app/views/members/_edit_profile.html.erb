@@ -1,0 +1,48 @@
+<%= form_with model: current_user, url: update_profile_path, method: :patch do |form| %>
+  <div class="flex space-x-5 mb-4">
+    <div class="w-1/2">
+      <%= form.label :first_name, "First Name", class: "text-gray-500" %>
+      <%= form.text_field :first_name, value: current_user.first_name, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+    <div class="w-1/2">
+      <%= form.label :last_name,"Last Name", class: "text-gray-500" %>
+      <%= form.text_field :last_name, value: current_user.last_name, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+  </div>
+
+   <div>
+      <%= form.label :street_address, "Street Address", class: "text-gray-500" %>
+      <%= form.text_field :street_address, value: current_user.street_address, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+  
+  <div class="flex space-x-5 mb-4">
+    <div class="w-1/2">
+      <%= form.label :city, "City", class: "text-gray-500" %>
+      <%= form.text_field :city, value: current_user.city, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+    <div class="w-1/2">
+      <%= form.label :state, "State", class: "text-gray-500" %>
+      <%= form.text_field :state, value: current_user.state, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+  </div>
+
+  <div class="flex space-x-5 mb-4">
+    <div class="w-1/2">
+      <%= form.label :country, "Country", class: "text-gray-500" %>
+      <%= form.text_field :country, value: current_user.country, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+    <div class="w-1/2">
+      <%= form.label :zipcode, "Zipcode", class: "text-gray-500" %>
+      <%= form.text_field :zipcode, value: current_user.zipcode, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+  </div>
+  
+   <div class=" w-full flex flex-col mb-4">
+     <%=form.label :profile_title, "Profile Title", class: "text-gray-500" %>
+     <%= form.select :profile_title, options_for_select(User::PROFILE_TITLE), class:"text-gray-600 w-full rounded-md border-gray-300 my-1"%>
+   </div>
+
+  <div class="mt-4">
+    <%= form.submit "Update Profile", class: "px-4 py-2 my-3 bg-blue-500 text-white rounded-md hover:bg-blue-600", data: {action: "click -> detail-modal#closemodal"} %>
+  </div>
+<% end %>

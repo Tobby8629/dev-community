@@ -1,0 +1,4 @@
+<%= form_with model: current_user , url: update_about_path, method: :patch do |form| %>
+  <%=form.text_area :about, value:current_user.about, class: "w-full min-h-[300px] rounded-md resize-none"  %>
+  <%=form.submit "update about", class: "px-4 my-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600", data: {action: "click -> detail-modal#closemodal"}%>
+<% end %>
