@@ -40,6 +40,8 @@ gem 'ransack'
 
 gem 'cssbundling-rails'
 
+gem "font-awesome-sass"
+
 gem 'kaminari'
 
 

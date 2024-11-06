@@ -111,6 +111,14 @@ GEM
     erubi (1.13.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -270,6 +278,8 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.3.1)
     selenium-webdriver (4.25.0)
       base64 (~> 0.2)
@@ -337,6 +347,7 @@ DEPENDENCIES
   debug
   devise
   faker
+  font-awesome-sass
   importmap-rails
   jbuilder
   kaminari

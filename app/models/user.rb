@@ -14,7 +14,8 @@ class User < ApplicationRecord
     "CTO"
   ].freeze
 
-  has_many :work_experiences
+  has_many :work_experiences, dependent: :destroy
+  has_many :connections, dependent: :destroy
 
   def name
     "#{first_name} #{last_name}"

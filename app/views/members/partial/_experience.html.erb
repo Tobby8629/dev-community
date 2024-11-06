@@ -1,7 +1,15 @@
-<div id="experience_<%= experience.id %>" class="relative">
-  <p><%= experience.job_title %> at <%= experience.company %> - <%= experience.location %></p>
-  <div class="absolute top-[10px] right-[10px]">
-    <%= link_to "edit", edit_work_experience_path(experience) %>
-    <%= link_to "Delete", work_experience_path(experience), data: {turbo_method: :delete } %>
+<div id="experience_<%= experience.id %>" class="relative border-gray-300 border-2 my-3 p-5">
+  <h3 class="font-600 text-xl capitalize"><%= experience.job_title %></h3>
+  <p class="my-1 capitalize"> <%= experience.company %></p>
+  <p class="my-1 capitalize text-blue-400"><%= experience.location %></p>
+  <%if user.id == current_user.id %>
+  <div class="absolute top-[10px] right-[15px]">
+    <%= link_to edit_work_experience_path(experience), data: {controller: "user-detail"}, class: "mr-3 text-blue-500" do %>
+      <%=icon('fa-solid', 'pen-to-square')%>
+    <%end%>
+    <%= link_to  work_experience_path(experience), data: {turbo_method: :delete }, class: "text-red-500" do %>
+      <%=icon('fa-solid', 'trash')%>
+    <%end%>
   </div>
+  <%end%>
 </div>

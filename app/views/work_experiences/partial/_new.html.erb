@@ -1,4 +1,14 @@
 <%=form_with model: @experience, url: work_experiences_path, method: :post do |form| %>
+   <div>
+     <% if @experience.errors.any? %>
+       <h3><%=pluralize(@experience.errors.count, 'error')%> prohibited you from submitting this form </h3>
+       <ul>
+        <%@experience.errors.each do |error| %>
+          <li><%= error.full_message%></li>
+        <%end%>
+       </ul>
+     <%end%>
+   </div>
   <div>
     <label class="text-gray-500 text-xl">
      Title
@@ -18,7 +28,7 @@
      Employment Type
      <span class="text-red-500">*</span>
     </label>
-     <%=form.select :employment_type, options_for_select(WorkExperience::EMPLOYMENT_TYPE), {}, class:"text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+     <%=form.select :employment_type, options_for_select([["Select Employment Type", nil]] + WorkExperience::EMPLOYMENT_TYPE), {}, class:"text-gray-600 w-full rounded-md border-gray-300 my-1" %>
   </div>
   <div>
     <label class="text-gray-500 text-xl">
@@ -32,7 +42,7 @@
      Location Type
      <span class="text-red-500">*</span>
     </label>
-     <%=form.select :location_type, options_for_select(WorkExperience::LOCATION_TYPE), {}, class:"text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+     <%=form.select :location_type, options_for_select([['select location type', nil]] + WorkExperience::LOCATION_TYPE), {}, class:"text-gray-600 w-full rounded-md border-gray-300 my-1" %>
   </div>
   <div class="flex space-x-5 mb-4">
     <div class="w-1/2">

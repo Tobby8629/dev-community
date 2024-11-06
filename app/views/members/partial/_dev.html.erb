@@ -1,0 +1,11 @@
+ <div id="each_dev">
+    <%= render "members/user_profile", user: @user %>
+    <%= render "members/user_about", user: @user %>
+    <div id="experience_list" class="w-[60%] relative py-10 p-8 my-5 mx-auto rounded-md border-2">
+      <%if @user.work_experiences.empty?%>
+        <p>user has no experience</p>
+        <%else%>
+        <%= render partial: "members/partial/experience", collection: @user.work_experiences, as: :experience, locals: { user: @user } %>
+      <%end%>
+    </div>
+  </div>

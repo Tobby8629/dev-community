@@ -1,0 +1,75 @@
+<%=form_with model: @experience, data: {controller: "form-experience"}, url: work_experience_path, method: :put do |form| %>
+  <%if @experience.errors.any?%>
+    <ul>
+      <h3>
+       <%=pluralize(@experience.errors.count, "error") %>
+       will not allow your update to save
+      <h3>
+      <%@experience.errors.each do |error|%>
+        <li><%= error.message%></li>
+      <%end%>
+    </ul>
+  <%end%>
+  <div>
+    <label class="text-gray-500 text-xl">
+     Title
+     <span class="text-red-500">*</span>
+    </label>
+    <%= form.text_field :job_title, value: @experience.job_title, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+  </div>
+  <div>
+    <label class="text-gray-500 text-xl">
+     Company
+     <span class="text-red-500">*</span>
+    </label>
+    <%= form.text_field :company, value: @experience.company,  class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+  </div>
+  <div class=" w-full flex flex-col">
+    <label class="text-gray-500 text-xl mb-2">
+     Employment Type
+     <span class="text-red-500">*</span>
+    </label>
+     <%=form.select :employment_type, options_for_select(WorkExperience::EMPLOYMENT_TYPE, @experience.employment_type), {}, class:"text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+  </div>
+  <div>
+    <label class="text-gray-500 text-xl">
+     Location
+     <span class="text-red-500">*</span>
+    </label>
+    <%= form.text_field :location, value: @experience.location, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+  </div>
+  <div class=" w-full flex flex-col">
+    <label class="text-gray-500 text-xl mb-2">
+     Location Type
+     <span class="text-red-500">*</span>
+    </label>
+     <%=form.select :location_type, options_for_select(WorkExperience::LOCATION_TYPE, @experience.location_type), {}, class:"text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+  </div>
+  <div class="flex space-x-5 mb-4">
+    <div class="w-1/2">
+      <label class="text-gray-500 text-xl mb-2">
+        Start date
+        <span class="text-red-500">*</span>
+      </label>
+      <%=form.date_field :start_date, value: @experience.start_date, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+    <div class="w-1/2">
+      <label class="text-gray-500 text-xl mb-2">
+        End date
+        <span class="text-red-500">*</span>
+      </label>
+      <%=form.date_field :end_date, value: @experience.end_date, data: {"form-experience-target": "endDate"}, class: "text-gray-600 w-full rounded-md border-gray-300 my-1" %>
+    </div>
+  </div>
+  <div class="flex items-center">
+    <%=form.check_box :currently_working, value: @experience.currently_working, data: {action: "click->form-experience#currently_working", "form-experience-target": "current"} %>
+    <h4 class="ml-3">I currently work here</h4>
+  </div>
+  <div class="my-4">
+    <label>Job Description</label>
+    <%=form.text_area :description, value: @experience.description, class: "w-full min-h-[150px] rounded-md resize-none"  %>
+  </div>
+  <div class="mt-4">
+    <%= form.submit "Update Profile", class: "px-4 py-2 my-3 bg-blue-500 text-white rounded-md hover:bg-blue-600", data: {action: "click -> detail-modal#closemodal"} %>
+  </div>
+<%end%>
